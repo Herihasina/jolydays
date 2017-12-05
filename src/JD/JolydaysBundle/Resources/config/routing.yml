@@ -1,0 +1,3 @@
+jd_jolydays_homepage:
+  path:     /
+  defaults: { _controller: JDJolydaysBundle:HelloWorld:index }

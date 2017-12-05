@@ -1,0 +1,3 @@
+jd_jolydays:
+    resource: "@JDJolydaysBundle/Resources/config/routing.yml"
+    prefix:   /
