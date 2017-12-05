@@ -4,14 +4,16 @@ jd_jolydays_homepage:
   defaults:
     _controller: JDJolydaysBundle:Posts:index
     page: 1
-  requirements: page: \d*
+  requirements: 
+    page: \d*
 
 # To view single post
 jd_jolydays_view:
   path: /post/{post_id}
   defaults:
     _controller: JDJolydaysBundle:Posts:view
-  requirements: post_id: \d+
+  requirements: 
+    post_id: \d+
 
 jd_jolydays_add:
   path: /add
@@ -23,11 +25,13 @@ jd_jolydays_edit:
   path: /edit/{post_id}
   defaults:
     _controller: JDJolydaysBundle:Posts:edit
-  requirements: post_id: \d+
+  requirements:
+    post_id: \d+
 
 # To delete the post with post_id id
 jd_jolydays_delete:
   path: /delete/{post_id}
   defaults:
     _controller: JDJolydaysBundle:Posts:delete
-  requirements: post_id: \d+
+  requirements:
+    post_id: \d+
