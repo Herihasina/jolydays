@@ -1,0 +1,37 @@
+{# Template of a single post  #}
+{% extends "JDJolydaysBundle::layout.html.twig" %}
+
+{% block title %}
+  View post - {{ parent() }}
+{% endblock %}
+
+{% block jolydaysbundle_body %}
+
+  {# vars are from controller #}
+
+  <h4>{{ post.title }}</h4>
+
+  <div class="row">
+    <div class="col-sm-12">
+      {{ post.content }}
+    </div>
+    <div class="col-sm-12 text-right">
+      Posted by <span class="text-warning">{{ post.author }}</span> on <span class="text-warning">{{ post.date|date('d/m/Y') }}</span>
+    </div>  
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <a href="{{ path('jd_jolydays_homepage') }}" class="btn">
+        All posts
+      </a>
+      <a href="{{ path('jd_jolydays_edit', {'post_id': post.id}) }}" class="btn">
+        Edit
+      </a>
+      <a href="{{ path('jd_jolydays_delete', {'post_id': post.id}) }}" class="btn">
+        Delete
+      </a>
+    </div>
+  </div>
+
+{% endblock %}

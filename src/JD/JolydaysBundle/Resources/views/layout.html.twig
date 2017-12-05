@@ -1,0 +1,22 @@
+{# 
+	General template of the Jolydays bundle
+	Extends general template
+	Every children extend it
+ #}
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+  {# Common title of bundle body #}
+  <h2>Posts</h2>
+
+  {# Empty block for the bundle body #}
+  {% block jolydaysbundle_body %}
+  {% endblock %}
+  {# /end #}
+
+{% endblock %}

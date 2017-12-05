@@ -1,0 +1,22 @@
+{# Template of editing post  #}
+
+{% extends "JDJolydaysBundle::layout.html.twig" %}
+
+{% block title %}
+  Edit post - {{ parent() }}
+{% endblock %}
+
+{% block jolydaysbundle_body %}
+
+  <h4>Edit post</h4>
+
+  {{ include("JDJolydaysBundle:Posts:form.html.twig") }}
+
+  {# var post.id given by controller #}
+  <p>
+    <a href="{{ path('jd_jolydays_view', {'post_id': post.id}) }}" class="btn">
+      Back
+    </a>
+  </p>
+
+{% endblock %}

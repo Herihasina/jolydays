@@ -1,0 +1,29 @@
+{# Hompage template - list of all posts #}
+{% extends "JDJolydaysBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }}
+{% endblock %}
+
+{% block jolydaysbundle_body %}
+
+  <h4>All posts</h4>
+
+  <ul>
+    {# 
+      vars are from controller
+      Check and loop all posts
+      if no post => 0 post
+    #}
+    {% for post in posts %}
+      <li>
+        <a href="{{ path('jd_jolydays_view', {'post_id': post.id}) }}">
+          {{ post.title }}
+        </a>
+      </li>
+    {% else %}
+      <li>0 post</li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}
