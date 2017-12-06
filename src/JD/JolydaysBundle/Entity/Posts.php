@@ -49,13 +49,6 @@ class Posts
      */
     private $date;
 
-    // default constructor set $date to current 
-    public function __construct()
-    {
-        $this->date = new \Datetime();
-    }
-
-
     /**
      * Get id
      *
@@ -161,5 +154,78 @@ class Posts
     {
         return $this->date;
     }
-}
 
+    /**
+     * @ORM\OneToOne(targetEntity="JD\JolydaysBundle\Entity\Illustrations", cascade={"persist"})
+     */
+    private $image;
+
+    /**
+     * Set image
+     *
+     * @param \JD\JolydaysBundle\Entity\Illustrations $image
+     *
+     * @return Posts
+     */
+    public function setImage(\JD\JolydaysBundle\Entity\Illustrations $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \JD\JolydaysBundle\Entity\Illustrations
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @ORM\ManyToMany(targetEntity="JD\JolydaysBundle\Entity\Category", cascade={"persist"})
+     */
+    private $categories;
+
+    /**
+     * Add category
+     *
+     * @param \JD\JolydaysBundle\Entity\Category $category
+     *
+     * @return Posts
+     */
+    public function addCategory(\JD\JolydaysBundle\Entity\Category $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \JD\JolydaysBundle\Entity\Category $category
+     */
+    public function removeCategory(\JD\JolydaysBundle\Entity\Category $category)
+    {
+        $this->categories->removeElement($category);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    // default constructor to current 
+    public function __construct()
+    {
+        $this->date = new \Datetime();
+    }
+}

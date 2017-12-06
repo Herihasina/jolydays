@@ -4,6 +4,7 @@ namespace JD\JolydaysBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use JD\JolydaysBundle\Entity\Posts;
 
 class PostsController extends Controller
 {
@@ -49,6 +50,7 @@ class PostsController extends Controller
   // path /add
   public function addAction()
   {
+    $p = new Posts();
     // show the add form
     return $this->render('JDJolydaysBundle:Posts:add.html.twig');
   }
