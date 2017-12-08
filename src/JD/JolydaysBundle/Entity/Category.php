@@ -62,5 +62,41 @@ class Category
     {
         return $this->name;
     }
-}
 
+    /**
+     * @ORM\ManyToMany(targetEntity="JD\JolydaysBundle\Entity\Posts", mappedBy="categories")
+     */
+    private $posts;
+
+    public function getPosts(){
+        return $this->posts;
+    }
+
+    public function __construct() {
+        $this->posts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add post
+     *
+     * @param \JD\JolydaysBundle\Entity\Posts $post
+     *
+     * @return Category
+     */
+    public function addPost(\JD\JolydaysBundle\Entity\Posts $post)
+    {
+        $this->posts[] = $post;
+
+        return $this;
+    }
+
+    /**
+     * Remove post
+     *
+     * @param \JD\JolydaysBundle\Entity\Posts $post
+     */
+    public function removePost(\JD\JolydaysBundle\Entity\Posts $post)
+    {
+        $this->posts->removeElement($post);
+    }
+}
