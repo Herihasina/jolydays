@@ -2,6 +2,7 @@
     "name": "winni/jolydays",
     "license": "proprietary",
     "type": "project",
+    "description":"bundle test for jolydays",
     "autoload": {
         "psr-4": {
             "": "src/"

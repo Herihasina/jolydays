@@ -111,7 +111,6 @@ class PostsController extends Controller
   // path /delete/$post_id_to_delete
   public function deleteAction($post_id, Request $request)
   {
-    // TODO: delete post with post_id id to db
     $em = $this->getDoctrine()->getManager();
     $post = $em->getRepository('JDJolydaysBundle:Posts')->find($post_id);
 
@@ -200,9 +199,5 @@ class PostsController extends Controller
     return $this->render('JDJolydaysBundle:Posts:resultForm.html.twig', array(
       'form' => $form->createView()
     ));
-
-
   }
-
-
 }

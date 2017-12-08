@@ -24,21 +24,4 @@ class PostsRepository extends \Doctrine\ORM\EntityRepository
     $qb->where($qb->expr()->in('c.name', $categories));
     return $qb->getQuery()->getResult();
   }
-
-  public function getPostFromPattern($pattern)
-  {                  
-    // $query = $this->createQueryBuilder('p')
-    //   ->where('p.title LIKE :result_title')
-    //   ->setParameter('result_title', '%'.$pattern.'%')
-
-    //   ->orWhere('p.author LIKE :result_author')
-    //   ->setParameter('result_author', '%'.$pattern.'%')
-
-    //   ->orWhere('p.content LIKE :result_content')
-    //   ->setParameter('result_content', '%'.$pattern.'%')
-
-    //   ->getQuery(); 
-
-    // $query = $query->getResult();
-  }
 }
