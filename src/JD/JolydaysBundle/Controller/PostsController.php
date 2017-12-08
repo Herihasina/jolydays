@@ -5,7 +5,6 @@ namespace JD\JolydaysBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Session;
 use JD\JolydaysBundle\Entity\Posts;
 use JD\JolydaysBundle\Entity\Category;
 use Doctrine\ORM\EntityRepository;
@@ -69,7 +68,6 @@ class PostsController extends Controller
         $em->persist($post);
         $em->flush();
 
-        $request->getSession()->getFlashBag()->add('popup', 'Post added');
         return $this->redirectToRoute('jd_jolydays_view', array(
           'post_id' => $post->getId()
           ));
@@ -96,8 +94,6 @@ class PostsController extends Controller
 
     if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
       $em->flush();
-
-      $request->getSession()->getFlashBag()->add('popup', 'Post edited');
 
       return $this->redirectToRoute('jd_jolydays_view', array(
           'post_id' => $post_id
@@ -126,9 +122,6 @@ class PostsController extends Controller
     if ($request->isMethod('POST')) {
       $em->remove($post);
       $em->flush();
-
-      $request->getSession()->getFlashBag()->add('popup', "Post successfully deleted.");
-
       return $this->redirectToRoute('jd_jolydays_homepage');
     }
 
