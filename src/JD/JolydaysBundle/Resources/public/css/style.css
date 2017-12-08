@@ -1,0 +1,32 @@
+/*
+	Custom style
+*/
+header {
+	padding-top: 2%;
+}
+h1 {margin: 0}
+#form_search {
+	border-radius: 5px;
+}
+main {
+	padding-bottom: 25px;
+}
+.list-posts {
+	list-style: none;
+	padding: 0;
+	margin:0;
+}
+.list-posts a {
+  font-size: 18px;
+}
+.metadata-wrap {
+	margin-top: 20px;
+}
+.tags-wrap {
+	margin-top: 20px;
+  margin-bottom: 20px;
+  border-width: 1px 0 1px 0;
+  border-style: solid;
+  border-color: #eee;
+  padding-top: 10px;
+}

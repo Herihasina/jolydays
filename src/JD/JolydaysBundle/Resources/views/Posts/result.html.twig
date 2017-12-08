@@ -8,10 +8,10 @@
 {% block jolydaysbundle_body %}
 
   {% block page_title %}
-    <h2>{{ page_title }}</h2>
+    <h2>All posts</h2>
   {% endblock %}
 
-  <ul class="list-posts">
+  <ul>
     {% for post in posts %}
       <li>
         <a href="{{ path('jd_jolydays_view', {'post_id': post.id}) }}">

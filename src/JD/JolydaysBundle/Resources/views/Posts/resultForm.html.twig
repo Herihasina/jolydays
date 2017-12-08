@@ -1,0 +1,12 @@
+<div class="col-sm-6 text-right">
+    {{ form_start(form, { 'attr': {'class': 'form-inline'} }) }}
+        <div class="form-group">
+        	<div class="input-group">
+            {{ form_widget(form.search, { 'attr': {'class': "form-control", 'placeholder':"keyword", 'autocomplete':"off"} }) }}
+        	</div>
+        </div>
+        {{ form_widget(form.Find, { 'attr': {'class': 'btn btn-primary'} }) }}
+
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+</div>

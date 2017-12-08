@@ -1,0 +1,7 @@
+<div class="nav nav-pills nav-stacked">
+	{% for category in categories %}
+			<a href="{{ path('jd_jolydays_posts_in_cat', {'cat_name': category.name}) }}" title="" class="btn btn-default btn-xs">{{ category.name }}</a>
+	{% else %}
+		No category yet
+	{% endfor %}
+</div>

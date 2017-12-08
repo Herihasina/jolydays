@@ -2,3 +2,7 @@ services:
 #    jd_jolydays.example:
 #        class: JD\JolydaysBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+  # Fixtures services
+  JD\JolydaysBundle\DataFixtures\ORM\LoadCategory:
+    tags: [doctrine.fixture.orm]

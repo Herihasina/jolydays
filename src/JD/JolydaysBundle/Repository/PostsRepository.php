@@ -2,6 +2,8 @@
 
 namespace JD\JolydaysBundle\Repository;
 
+use Doctrine\ORM\QueryBuilder;
+
 /**
  * PostsRepository
  *
@@ -10,4 +12,33 @@ namespace JD\JolydaysBundle\Repository;
  */
 class PostsRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function getPostByCategory(array $categories)
+  {
+    $qb = $this->createQueryBuilder('a');
+
+    // join entity posts with category c and filter by category names
+    $qb
+      ->innerJoin('a.categories', 'c')
+      ->addSelect('c');
+
+    $qb->where($qb->expr()->in('c.name', $categories));
+    return $qb->getQuery()->getResult();
+  }
+
+  public function getPostFromPattern($pattern)
+  {                  
+    // $query = $this->createQueryBuilder('p')
+    //   ->where('p.title LIKE :result_title')
+    //   ->setParameter('result_title', '%'.$pattern.'%')
+
+    //   ->orWhere('p.author LIKE :result_author')
+    //   ->setParameter('result_author', '%'.$pattern.'%')
+
+    //   ->orWhere('p.content LIKE :result_content')
+    //   ->setParameter('result_content', '%'.$pattern.'%')
+
+    //   ->getQuery(); 
+
+    // $query = $query->getResult();
+  }
 }

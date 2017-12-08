@@ -156,7 +156,7 @@ class Posts
     }
 
     /**
-     * @ORM\OneToOne(targetEntity="JD\JolydaysBundle\Entity\Illustrations", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="JD\JolydaysBundle\Entity\Illustrations", cascade={"persist","remove"})
      */
     private $image;
 
@@ -185,7 +185,8 @@ class Posts
     }
 
     /**
-     * @ORM\ManyToMany(targetEntity="JD\JolydaysBundle\Entity\Category", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="JD\JolydaysBundle\Entity\Category", cascade={"persist"}, inversedBy="posts")
+     * 
      */
     private $categories;
 
@@ -227,5 +228,6 @@ class Posts
     public function __construct()
     {
         $this->date = new \Datetime();
+        $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
     }
 }

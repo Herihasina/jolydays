@@ -35,3 +35,14 @@ jd_jolydays_delete:
     _controller: JDJolydaysBundle:Posts:delete
   requirements:
     post_id: \d+
+
+# a page to show all posts of a category
+jd_jolydays_posts_in_cat:
+  path: /category/{cat_name}
+  defaults:
+    _controller: JDJolydaysBundle:Posts:postsInCat
+
+jd_jolydays_result:
+  path: /result
+  defaults:
+    _controller: JDJolydaysBundle:Posts:search

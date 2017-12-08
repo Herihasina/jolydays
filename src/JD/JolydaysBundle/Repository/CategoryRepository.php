@@ -2,6 +2,8 @@
 
 namespace JD\JolydaysBundle\Repository;
 
+use Doctrine\ORM\QueryBuilder;
+
 /**
  * CategoryRepository
  *
